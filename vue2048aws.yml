@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  vars:
+    ansible_user: ec2-user
+  tasks:
+  - name: Copy files
+    copy:
+      src: /home/sinensia/pruebas_docker/hello-2048/public_html/
+      dest: /var/www/html/
+      owner: apache
+      group: apache
+      mode: "0644"
+      directory_mode: "0755"
+
